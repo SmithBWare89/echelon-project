@@ -12,8 +12,17 @@
     <el-dropdown split-button v-else class="dropdown">
       Sort By Trainer
       <template #dropdown>
-        <el-dropdown-menu v-for="trainer in trainerOptions" :key="trainer">
-          <el-dropdown-item @click="handleTrainerSort(trainer)">{{ trainer }}</el-dropdown-item>
+        <el-dropdown-menu>
+          <el-dropdown-item @click="handleTrainerSort('Amy Hager')">Amy Hager</el-dropdown-item>
+          <el-dropdown-item @click="handleTrainerSort('Brian Hager')">Brian Hager</el-dropdown-item>
+          <el-dropdown-item @click="handleTrainerSort('Eden Lusk')">Eden Lusk</el-dropdown-item>
+          <el-dropdown-item @click="handleTrainerSort('Jaime Wilbanks')">Jaime Wilbanks</el-dropdown-item>
+          <el-dropdown-item @click="handleTrainerSort('Matt Titus')">Matt Titus</el-dropdown-item>
+          <el-dropdown-item @click="handleTrainerSort('Nancy McCaffrey')">Nancy McCaffrey</el-dropdown-item>
+          <el-dropdown-item @click="handleTrainerSort('Patricia Ochoa')">Patricia Ochoa</el-dropdown-item>
+          <el-dropdown-item @click="handleTrainerSort('Rachel Hardinge')">Rachel Hardinge</el-dropdown-item>
+          <el-dropdown-item @click="handleTrainerSort('Sam Jackson')">Sam Jackson</el-dropdown-item>
+          <el-dropdown-item @click="handleTrainerSort('Shelley Meredith')">Shelley Meredith</el-dropdown-item>
         </el-dropdown-menu>
       </template>
     </el-dropdown>
@@ -33,8 +42,11 @@
     >
       Sort By Level
       <template #dropdown>
-        <el-dropdown-menu v-for="level in levelOptions" :key="level">
-          <el-dropdown-item @click="handleLevelSort(level)">{{ level }}</el-dropdown-item>
+        <el-dropdown-menu>
+          <el-dropdown-item @click="handleLevelSort('Beginner')">Beginner</el-dropdown-item>
+          <el-dropdown-item @click="handleLevelSort('Intermediate')">Intermediate</el-dropdown-item>
+          <el-dropdown-item @click="handleLevelSort('Advanced')">Advanced</el-dropdown-item>
+          <el-dropdown-item @click="handleLevelSort('Not Yet Rated')">Not Yet Rated</el-dropdown-item>
         </el-dropdown-menu>
       </template>
     </el-dropdown>
@@ -51,8 +63,17 @@
     class="dropdown">
       Sort By Category
       <template #dropdown>
-        <el-dropdown-menu v-for="category in categoryOptions" :key="category">
-          <el-dropdown-item @click="handleCategorySort(category)">{{ category }}</el-dropdown-item>
+        <el-dropdown-menu>
+          <el-dropdown-item @click="handleCategorySort('Getting started')">Getting Started</el-dropdown-item>
+          <el-dropdown-item @click="handleCategorySort('Rhythm Runs')">Rhythm Runs</el-dropdown-item>
+          <el-dropdown-item @click="handleCategorySort('Rock N Fit ')">Rock N Fit</el-dropdown-item>
+          <el-dropdown-item @click="handleCategorySort('Promotional Rides')">Promotional Rides</el-dropdown-item>
+          <el-dropdown-item @click="handleCategorySort('Flex All')">Flex All</el-dropdown-item>
+          <el-dropdown-item @click="handleCategorySort('Core Lounge Ultra')">Core Lounge Ultra</el-dropdown-item>
+          <el-dropdown-item @click="handleCategorySort('Vertical Cycle')">Vertical Cycle</el-dropdown-item>
+          <el-dropdown-item @click="handleCategorySort('Flex Core X')">Flex Core X</el-dropdown-item>
+          <el-dropdown-item @click="handleCategorySort('FitNation Treadmill')">FitNation Treadmill</el-dropdown-item>
+          <el-dropdown-item @click="handleCategorySort('Strength Row')">Strength Row</el-dropdown-item>
         </el-dropdown-menu>
       </template>
     </el-dropdown>
@@ -132,7 +153,7 @@
 </template>
 
 <script>
-import { inject, ref, onBeforeMount } from 'vue-demi'
+import { inject, ref, onBeforeMount, onMounted } from 'vue-demi'
 import { ElSpace, ElCard, ElImage, ElScrollbar, ElDivider, ElTag, ElDropdown, ElDropdownMenu, ElDropdownItem, ElButton, ElNotification } from 'element-plus';
 import { convertTime, convertWorkoutLength } from '../composables/convertTime'
 // @ is an alias to /src
@@ -158,25 +179,25 @@ export default {
     const levelOptions = ref([])
     const categoryOptions = ref([])
 
-    onBeforeMount(() => {
-      workout.state.workoutData.forEach(workout => {
-        if (!trainerOptions.value.includes(workout.inst)) {
-          return trainerOptions.value.push(workout.inst)
-        }
-      })
+    // onMounted(() => {
+    //   workout.state.workoutData.forEach(workout => {
+    //     if (!trainerOptions.value.includes(workout.inst)) {
+    //       return trainerOptions.value.push(workout.inst)
+    //     }
+    //   })
 
-      workout.state.workoutData.forEach(workout => {
-        if (!levelOptions.value.includes(workout.level)) {
-          return levelOptions.value.push(workout.level)
-        }
-      })
+    //   workout.state.workoutData.forEach(workout => {
+    //     if (!levelOptions.value.includes(workout.level)) {
+    //       return levelOptions.value.push(workout.level)
+    //     }
+    //   })
 
-      workout.state.workoutData.forEach(workout => {
-        if (!categoryOptions.value.includes(workout.cat)) {
-          return categoryOptions.value.push(workout.cat)
-        }
-      })
-    })
+    //   workout.state.workoutData.forEach(workout => {
+    //     if (!categoryOptions.value.includes(workout.cat)) {
+    //       return categoryOptions.value.push(workout.cat)
+    //     }
+    //   })
+    // })
 
     const handleTrainerSort = (trainer) => {
       workout.methods.sortTrainer(trainer)

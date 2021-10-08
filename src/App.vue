@@ -64,6 +64,7 @@ export default {
     display: none !important;
   }
 
+
 @media screen and (max-width: 960px) {
 
 }
@@ -85,6 +86,10 @@ export default {
 
   .mobile-menu-container {
     display: block !important;
+  }
+  
+  .el-main {
+    max-height: 800px;
   }
 }
 </style>
