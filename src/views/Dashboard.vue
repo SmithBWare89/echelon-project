@@ -1,4 +1,5 @@
 <template>
+  <!-- Sort Features -->
   <div class="dropdown-container">
     <el-dropdown 
       split-button 
@@ -58,6 +59,8 @@
 
     <el-button class="reset-button" @click="handleResetState">Reset</el-button>
   </div>
+
+  <!-- Workout Cards -->
   <el-scrollbar height="100%">
     <el-space
       :wrap="false"

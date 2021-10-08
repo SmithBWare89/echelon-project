@@ -45,6 +45,9 @@ const methods = {
     async resetState() {
         if (state.levelSorted || state.categorySorted || state.trainersSorted) {
             state.workoutData = state.storedWorkoutData
+            state.levelSorted = false
+            state.categorySorted = false
+            state.trainersSorted = false
         }
     }
 }
