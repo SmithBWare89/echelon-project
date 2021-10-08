@@ -338,7 +338,7 @@ export default {
 
 @media screen and (max-width: 600px) {
   .el-card {
-    width: 375px;
+    width: 350px;
     height: 300px;
   }
 
