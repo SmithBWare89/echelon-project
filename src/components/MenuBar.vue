@@ -93,5 +93,8 @@ export default {
 }
 
 @media screen and (max-width: 600px) {
+    .image-container {
+        margin-top: 10px;
+    }
 }
 </style>
