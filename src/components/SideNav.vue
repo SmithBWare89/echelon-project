@@ -14,7 +14,7 @@
                 <a href="https://echelonstudio.com/" target="_self">Home</a>
             </el-menu-item>
             <el-menu-item index="2" class="sub-menu-title">
-                <a href="https://echelonstudio.com/studio" target="_self">Profile</a>
+                <a href="https://echelonstudio.com/classes" target="_self">Classes</a>
             </el-menu-item>
             <el-menu-item index="3" class="sub-menu-title">
                 <a href="https://echelonfit.com/" target="_self">Shop</a>

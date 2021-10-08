@@ -270,7 +270,7 @@ export default {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: space-around;
     align-items: center;
     margin-bottom: 10px;
     width: 75%;

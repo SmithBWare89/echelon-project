@@ -13,7 +13,7 @@
           <el-link href="https://echelonstudio.com/about">About</el-link>
         </el-menu-item>
         <el-menu-item index="1">
-          <el-link href="https://echelonstudio.com/careers">Terms</el-link>
+          <el-link href="https://echelonstudio.com/studio#/terms">Terms</el-link>
         </el-menu-item>
       </el-menu>
   </div>
