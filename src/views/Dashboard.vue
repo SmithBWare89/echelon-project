@@ -70,6 +70,7 @@
       <el-card
         :body-style="{ padding:'0px' }"
         shadow="never"
+        @click="notifyAdd(workout.name)"
       >
         <div>
           <div class="workout-title-container">
@@ -132,7 +133,7 @@
 
 <script>
 import { inject, ref, onBeforeMount } from 'vue-demi'
-import { ElSpace, ElCard, ElImage, ElScrollbar, ElDivider, ElTag, ElDropdown, ElDropdownMenu, ElDropdownItem } from 'element-plus';
+import { ElSpace, ElCard, ElImage, ElScrollbar, ElDivider, ElTag, ElDropdown, ElDropdownMenu, ElDropdownItem, ElButton, ElNotification } from 'element-plus';
 import { convertTime, convertWorkoutLength } from '../composables/convertTime'
 // @ is an alias to /src
 
@@ -147,7 +148,9 @@ export default {
     ElTag,
     ElDropdown,
     ElDropdownMenu,
-    ElDropdownItem
+    ElDropdownItem,
+    ElButton,
+    ElNotification
   },
   setup() {
     const { workout } = inject('store')
@@ -191,7 +194,14 @@ export default {
       workout.methods.resetState()
     }
 
-    return { workout, convertTime, convertWorkoutLength, trainerOptions, levelOptions, categoryOptions, handleTrainerSort, handleLevelSort, handleCategorySort, handleResetState }
+    const notifyAdd = (workoutName) => {
+      ElNotification({
+        title: 'Workout Added!',
+        message: `Your selected workout (${workoutName}) will begin shortly.`
+      })
+    }
+
+    return { workout, convertTime, convertWorkoutLength, trainerOptions, levelOptions, categoryOptions, handleTrainerSort, handleLevelSort, handleCategorySort, handleResetState, notifyAdd }
   }
 }
 </script>
@@ -294,6 +304,11 @@ export default {
   .reset-button:hover {
     background-color: var(--white);
     color: var(--dark);
+  }
+
+  .start-workout {
+    height: 20px;
+    width: 100% !important;
   }
 
 @media screen and (max-width: 960px) {

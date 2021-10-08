@@ -6,7 +6,7 @@ This project is related to the interview process for Echelon Fitness and is inte
 ## Table of Contents
 * [Installation](#installation)
 * [Usage](#usage)
-* [UX/UX Library](#UI/UX)
+* [UI/UX Library](#UI/UX)
 * [Languages](#languages)
 * [Contributing](#contributing)
 * [Collaborator](#collaborators)
@@ -18,7 +18,7 @@ Please visit the deployed version of the application. If you would like to run a
 ## Usage
 ![Echelon Demo](./src/assets/echelon-demo.gif)
 
-## UI/UX Library
+## UI/UX
 [Element Plus](https://element-plus.org/en-US/)
 
 ## Languages
