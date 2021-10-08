@@ -16,7 +16,7 @@ This project is related to the interview process for Echelon Fitness and is inte
 Please visit the deployed version of the application. If you would like to run a development version of this then please `clone the repository` to your local machine, navigate to the folder in your text editor, install all packages using the `npm install` command while in the root directory, and then run `npm run serve` while also in the root directory. This will allow you to view, edit, and make changes to the application from your local machine.
 
 ## Usage
-To chat with your friends and family!
+![Echelon Demo](./src/assets/echelon-demo.gif)
 
 
 ## License
