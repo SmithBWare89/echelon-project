@@ -1,30 +1,90 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view/>
+    <el-container class="app-container">
+    <el-aside width="300px" class="side-nav-container">
+      <SideNav></SideNav>
+    </el-aside>
+    <el-container class="content-container">
+      <div class="mobile-menu-container">
+        <MenuBar></MenuBar>
+      </div>
+      <el-main>
+        <router-view></router-view>
+      </el-main>
+      <el-footer>
+        <Footer></Footer>
+      </el-footer>
+    </el-container>
+  </el-container>
 </template>
 
+<script>
+import { onMounted, provide } from 'vue'
+
+import SideNav from './components/SideNav.vue'
+import Footer from './components/Footer.vue'
+import MenuBar from './components/MenuBar.vue'
+
+import { ElAside, ElContainer, ElHeader, ElMain, ElFooter } from 'element-plus'
+
+import useGetWorkoutList from './composables/getWorkoutList'
+
+import store from './store/index'
+
+export default {
+    name: 'App',
+    components: { ElAside, ElContainer, ElHeader, ElMain, ElFooter, SideNav, Footer, MenuBar },
+    setup() {
+      provide('store', store)
+      const { workout } = store
+
+      const { error, isLoading, workoutData, getWorkoutList } = useGetWorkoutList()
+
+      onMounted(async () => {
+        if (!workout.state.workoutData.length) {
+          await getWorkoutList()
+          workout.methods.setWorkoutData(workoutData.value)
+        }
+      })
+
+      return { error, isLoading }
+    }
+}
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  .app-container{
+    height: 100vh;
+  }
+  .el-header {
+    width: 100vw !important;
+    padding: 0px !important;
+  }
+
+  .mobile-menu-container {
+    display: none !important;
+  }
+
+@media screen and (max-width: 960px) {
+
 }
 
-#nav {
-  padding: 30px;
+@media screen and (max-width: 768px) {
+  .el-aside {
+    width: 150px;
+  }
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+@media screen and (max-width: 600px) {
+  .el-aside {
+    width: 200px;
+  }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+  .side-nav-container {
+    display: none !important;
+  }
+
+  .mobile-menu-container {
+    display: block !important;
+  }
 }
 </style>
