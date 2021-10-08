@@ -6,7 +6,7 @@ This project is related to the interview process for Echelon Fitness and is inte
 ## Table of Contents
 * [Installation](#installation)
 * [Usage](#usage)
-* [License](#license)
+* [UX/UX Library](#UI/UX)
 * [Languages](#languages)
 * [Contributing](#contributing)
 * [Collaborator](#collaborators)
@@ -18,9 +18,8 @@ Please visit the deployed version of the application. If you would like to run a
 ## Usage
 ![Echelon Demo](./src/assets/echelon-demo.gif)
 
-
-## License
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+## UI/UX Library
+[Element Plus](https://element-plus.org/en-US/)
 
 ## Languages
 ![HTML-5 Badge](https://img.shields.io/badge/Language-HTML--5-blue)
@@ -30,8 +29,6 @@ Please visit the deployed version of the application. If you would like to run a
 ![Vue Badge](https://img.shields.io/badge/Framework-Vue-green)
 ![Firebase Badge](https://img.shields.io/badge/Hosting-Firebase-red)
 
-## Contributing
-Contact me!
 
 ## Collaborators
 There were no other contributors to this project.
