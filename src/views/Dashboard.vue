@@ -285,6 +285,7 @@ export default {
     background-color: var(--dark);
     color: var(--white);
     font-size: .80rem;
+    margin-left: 5px;
   }
 
   .reset-button:hover {
