@@ -18,12 +18,10 @@ body {
     background-color: var(--dark);
 }
 
-.el-dropdown .el-button-group .el-button, .el-dropdown-item {
+.el-dropdown .el-button-group .el-button {
     background-color: var(--dark);
     color: var(--white);
     font-size: .80rem;
-    margin-left: 5px;
-    margin-right: 5px;
 }
 
 .el-dropdown .el-button-group .el-button:hover {
